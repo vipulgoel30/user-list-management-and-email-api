@@ -25,8 +25,8 @@ const upload = multer({
   },
 });
 
-router.get("/", getList); // paginated route (optionally can specify limit and page)
-router.get("/:id", verifyID, getListById);
+router.get("/", getList); // paginated route (specify limit and page) (Default limit 20 page 1)
+router.get("/:id", verifyID, getListById); // paginated route (specify limit and page of no of users) (Default limit 100 and page 1)
 router.post("/", createList);
 router.patch("/adduser/:id", upload.single("user"), verifyID, addUser);
 router.post("/sendmail/:id", verifyID, sendMail);

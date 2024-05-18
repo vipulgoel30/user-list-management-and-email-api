@@ -7,14 +7,14 @@ import catchAsync from "../utils/catchAsync.js";
 
 export const unsubscribe = catchAsync(async (req, res, next) => {
   const { token } = req.query;
+
   try {
     const { id, list } = jwt.decode(token);
-    console.log(id, list);
-    const user = await User.findOneAndUpdate({ _id: id, list: list }, { isSubscribed: false });
-    console.log(user);
-    res.status(200).send("<h1>Successfully unsubscribed from mailing list</h1>");
+
+    await User.findOneAndUpdate({ _id: id, list: list }, { isSubscribed: false });
+
+    res.status(200).send("<h2>Successfully unsubscribed from mailing list</h2>");
   } catch (err) {
-    console.log(err);
-    res.status(400).send("<h1>Please verify the link</h1>");
+    res.status(400).send("<h2>Please verify the link</h2>");
   }
 });

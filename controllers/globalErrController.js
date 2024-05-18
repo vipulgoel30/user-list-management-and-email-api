@@ -1,7 +1,7 @@
+// User imports
 import AppError from "../utils/AppError.js";
 
 export default (err, req, res, next) => {
-  console.log(err);
   let message = "Uhh! Something went wrong on the server";
   let statusCode = 500;
   if (err instanceof AppError) {
