@@ -24,6 +24,10 @@ app.use(mongoSanitize());
 // helmet : add security headers
 app.use(helmet());
 
+app.get("/", (req, res, next) => {
+  res.status(200).json("App running");
+});
+
 app.use("/list", listRouter);
 app.use("/user", userRouter);
 
