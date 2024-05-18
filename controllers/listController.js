@@ -94,7 +94,8 @@ export const addUser = async (req, res, next) => {
     if (!list) throw new AppError("No list found with that ID", 400);
 
     const readStream = createReadStream(join(__dirname, "./../files", req.file.originalname));
-    readStream.on("error", () => {
+    readStream.on("error", (err) => {
+      console.log(err);
       return res.status(500).json({
         status: "error",
         message: "Uhh! Something went wrong on the server",
@@ -164,6 +165,7 @@ export const addUser = async (req, res, next) => {
     });
 
     csvStream.on("error", (err) => {
+      console.log(err)
       return res.status(500).json({
         status: "error",
         message: "Uhh! Something went wrong on the server",
