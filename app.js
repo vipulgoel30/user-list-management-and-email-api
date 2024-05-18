@@ -21,8 +21,8 @@ app.use(cors("*"));
 // express-mongo-sanitize : sanitize the incoming payload for the mongoDB specific symbols
 app.use(mongoSanitize());
 
-// helmet : add security headers
-app.use(helmet());
+// // helmet : add security headers
+// app.use(helmet());
 
 app.use("/list", listRouter);
 app.use("/user", userRouter);
