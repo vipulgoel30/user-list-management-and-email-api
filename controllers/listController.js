@@ -202,9 +202,9 @@ export const addUser = async (req, res, next) => {
     next(err);
   } finally {
     try {
-      unlinkAsync(join(__dirname, "./../files", req.file.originalname));
-      const outputFilePath = join(__dirname, "./../files", `output-${req.file.originalname}`);
-      unlinkAsync(outputFilePath);
+      // unlinkAsync(join(__dirname, "./../files", req.file.originalname));
+      // const outputFilePath = join(__dirname, "./../files", `output-${req.file.originalname}`);
+      // unlinkAsync(outputFilePath);
     } catch (err) {}
   }
 };
